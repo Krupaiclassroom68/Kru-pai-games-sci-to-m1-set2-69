@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>วิทยาศาสตร์ พิชิตสอบเข้า ม.1 — ชุดที่ 2</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap');
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:'Sarabun',sans-serif; color:#f8fbff;
+  min-height:100vh; overflow-x:hidden;
+  background: radial-gradient(circle at 20% 10%, #1dd3ff44, transparent 28%),
+              radial-gradient(circle at 80% 20%, #a855f744, transparent 30%),
+              linear-gradient(135deg,#07111f,#111827 48%,#020617);
+}
+body:before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.35;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 34px 34px;
+  animation: star 18s linear infinite;
+}
+@keyframes star{from{transform:translateY(0)}to{transform:translateY(34px)}}
+.wrap{width:min(980px,94vw); margin:auto; padding:24px 0 40px; position:relative; z-index:1}
+.card{
+  background:linear-gradient(180deg,#ffffff18,#ffffff0b);
+  border:1px solid #ffffff2d; border-radius:28px; padding:28px;
+  box-shadow:0 24px 70px #0008, inset 0 1px 0 #fff2;
+  backdrop-filter: blur(10px);
+}
+.logo{display:inline-flex; gap:10px; align-items:center; padding:8px 16px; border-radius:999px;
+  background:#38bdf833; border:1px solid #7dd3fc66; font-weight:800; color:#dff8ff}
+h1{font-size:clamp(32px,5vw,58px); margin:20px 0 10px; line-height:1.1;
+  text-shadow:0 0 26px #38bdf8aa}
+.subtitle{font-size:clamp(18px,2.2vw,24px); color:#dbeafe; line-height:1.55}
+input{
+  width:100%; padding:18px 20px; border-radius:18px; border:2px solid #67e8f9;
+  background:#020617cc; color:#fff; font-size:22px; outline:none; margin:18px 0 10px;
+}
+button{
+  border:0; border-radius:18px; padding:15px 22px; font-family:inherit; font-size:19px; font-weight:800;
+  cursor:pointer; color:#06121f; background:linear-gradient(135deg,#fde047,#38bdf8);
+  box-shadow:0 10px 0 #075985, 0 18px 34px #0007; transition:.12s transform,.12s box-shadow;
+}
+button:hover{transform:translateY(-2px)}
+button:active{transform:translateY(6px); box-shadow:0 4px 0 #075985, 0 8px 16px #0006}
+.secondary{background:linear-gradient(135deg,#e0e7ff,#c084fc); box-shadow:0 10px 0 #6d28d9, 0 18px 34px #0007}
+.danger{background:linear-gradient(135deg,#fecaca,#fb7185); box-shadow:0 10px 0 #be123c, 0 18px 34px #0007}
+.hidden{display:none!important}
+.topbar{display:flex; justify-content:space-between; gap:14px; align-items:center; margin-bottom:18px; flex-wrap:wrap}
+.pill{padding:10px 16px; border-radius:999px; background:#020617bb; border:1px solid #60a5fa66; font-weight:800}
+.progress{height:14px; background:#020617; border-radius:99px; overflow:hidden; border:1px solid #38bdf855; margin:16px 0}
+.bar{height:100%; width:0%; background:linear-gradient(90deg,#22c55e,#fde047,#38bdf8); transition:.25s}
+.qbox{font-size:clamp(22px,3vw,32px); font-weight:800; line-height:1.45; margin:16px 0 18px}
+.options{display:grid; gap:14px}
+.opt{
+  width:100%; text-align:left; color:#f8fbff; background:linear-gradient(90deg,#0f172acc,#1e293bcc);
+  border:2px solid #60a5fa55; box-shadow:none; border-radius:20px; padding:17px 18px;
+  font-size:clamp(18px,2.2vw,23px); font-weight:700;
+}
+.opt:hover{border-color:#fde047; background:#172554}
+.opt.selected{background:linear-gradient(90deg,#facc15,#38bdf8); color:#06121f; border-color:#fff}
+.nav{display:flex; justify-content:space-between; gap:12px; margin-top:22px; flex-wrap:wrap}
+.resultScore{font-size:clamp(42px,8vw,86px); font-weight:900; color:#fde047; text-shadow:0 0 30px #facc15aa; text-align:center}
+.pass{text-align:center; font-size:clamp(24px,4vw,42px); font-weight:900; margin:8px 0 20px}
+.review{display:grid; gap:14px; margin-top:20px}
+.reviewItem{background:#020617aa; border:1px solid #ffffff22; border-radius:18px; padding:16px; line-height:1.55}
+.correct{color:#86efac; font-weight:900}
+.wrong{color:#fca5a5; font-weight:900}
+.exp{color:#bfdbfe; margin-top:8px}
+.footerBtns{display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:22px}
+@media print{
+  body{background:#fff;color:#000}
+  body:before,.noPrint{display:none!important}
+  .wrap{width:100%; padding:0}
+  .card,.reviewItem{box-shadow:none; border:1px solid #999; background:#fff; color:#000}
+  .exp{color:#000}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="start" class="card">
+    <div class="logo">⚡ Kru Pai Classroom • Science Entrance</div>
+    <h1>วิทยาศาสตร์ พิชิตสอบเข้า ม.1 — ชุดที่ 2</h1>
+    <p class="subtitle">ข้อสอบวิทยาศาสตร์ระดับปานกลาง–ยาก จำนวน 30 ข้อ สำหรับเตรียมสอบเข้า ม.1<br>มีระบบลงชื่อ คะแนน เฉลย และเสียงกดเพิ่มความเร้าใจ 🚀</p>
+    <input id="studentName" placeholder="พิมพ์ชื่อนักเรียน..." />
+    <button onclick="startGame()">เริ่มทำข้อสอบ</button>
+  </section>
+
+  <section id="quiz" class="card hidden">
+    <div class="topbar">
+      <div class="pill" id="nameShow">ผู้เล่น: -</div>
+      <div class="pill" id="countShow">ข้อ 1/30</div>
+      <div class="pill" id="scoreShow">คะแนน: 0</div>
+    </div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="qbox" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="nav noPrint">
+      <button class="secondary" onclick="prevQ()">ย้อนกลับ</button>
+      <button onclick="nextQ()">ข้อถัดไป</button>
+    </div>
+  </section>
+
+  <section id="result" class="card hidden">
+    <div class="logo">📘 Kru Pai Classroom • Result Report</div>
+    <h1>สรุปผลสอบ ชุดที่ 2</h1>
+    <div class="subtitle" id="resultName"></div>
+    <div class="resultScore" id="finalScore"></div>
+    <div class="pass" id="passText"></div>
+    <div class="footerBtns noPrint">
+      <button onclick="window.print()">พิมพ์ / บันทึกเป็น PDF หรือ Word</button>
+      <button class="secondary" onclick="restart()">กลับหน้าแรก</button>
+    </div>
+    <div class="review" id="review"></div>
+  </section>
+</div>
+
+<script>
+const questions = [{"q": "นักเรียนวางแก้วน้ำเย็นไว้บนโต๊ะ สักครู่มีหยดน้ำเกาะด้านนอกแก้ว ปรากฏการณ์นี้เกิดจากข้อใด", "opts": ["ไอน้ำในอากาศควบแน่นเมื่อเจอผิวแก้วเย็น", "น้ำในแก้วซึมผ่านผนังแก้วออกมา", "ออกซิเจนในอากาศกลายเป็นของเหลว", "น้ำเย็นระเหยออกมานอกแก้ว"], "ans": 0, "exp": "หยดน้ำด้านนอกแก้วเกิดจากไอน้ำในอากาศเย็นลงจนควบแน่นเป็นหยดน้ำ"}, {"q": "สาร A มีจุดเดือดคงที่ที่ 100°C ตลอดการเดือด ข้อสรุปใดเหมาะสมที่สุด", "opts": ["สาร A อาจเป็นสารบริสุทธิ์", "สาร A ต้องเป็นสารผสมเสมอ", "สาร A ไม่มีการเปลี่ยนสถานะ", "สาร A เป็นโลหะเท่านั้น"], "ans": 0, "exp": "สารบริสุทธิ์มักมีจุดเดือดคงที่ ส่วนสารผสมมักเดือดเป็นช่วงอุณหภูมิ"}, {"q": "ถ้านำผงเหล็กปนกับผงกำมะถัน ควรแยกสารด้วยวิธีใดก่อนจึงเหมาะที่สุด", "opts": ["ใช้แม่เหล็กดูด", "กรองด้วยกระดาษกรอง", "กลั่นลำดับส่วน", "ระเหยแห้ง"], "ans": 0, "exp": "เหล็กถูกแม่เหล็กดูดได้ แต่กำมะถันไม่ถูกดูด จึงแยกได้ง่าย"}, {"q": "ข้อใดเป็นหลักฐานชัดเจนที่สุดว่าเกิดปฏิกิริยาเคมี", "opts": ["น้ำแข็งมีขนาดเล็กลง", "น้ำเดือดมีฟองไอน้ำ", "เกิดแก๊สและมีตะกอนใหม่", "เกลือละลายจนมองไม่เห็น"], "ans": 2, "exp": "การเกิดสารใหม่ เช่น แก๊ส ตะกอน สีหรือกลิ่นใหม่ เป็นหลักฐานของการเปลี่ยนแปลงทางเคมี"}, {"q": "เมื่อนำสารละลายไอโอดีนหยดลงบนอาหารแล้วเปลี่ยนเป็นสีน้ำเงินม่วง แสดงว่าอาหารนั้นมีสารใด", "opts": ["แป้ง", "โปรตีน", "ไขมัน", "น้ำตาลกลูโคส"], "ans": 0, "exp": "ไอโอดีนใช้ทดสอบแป้ง หากมีแป้งจะเปลี่ยนเป็นสีน้ำเงินม่วง"}, {"q": "สารอาหารใดให้พลังงานสูงที่สุดต่อมวลเท่ากัน", "opts": ["ไขมัน", "โปรตีน", "คาร์โบไฮเดรต", "วิตามิน"], "ans": 0, "exp": "ไขมันให้พลังงานมากกว่าคาร์โบไฮเดรตและโปรตีนเมื่อเทียบมวลเท่ากัน"}, {"q": "หากหลอดเลือดฝอยบริเวณลำไส้เล็กเสียหาย จะกระทบหน้าที่ใดมากที่สุด", "opts": ["การดูดซึมสารอาหารเข้าสู่เลือด", "การบดอาหารให้ละเอียด", "การสร้างน้ำดี", "การขับถ่ายกากอาหาร"], "ans": 0, "exp": "ลำไส้เล็กมีหน้าที่หลักในการดูดซึมสารอาหารเข้าสู่กระแสเลือด"}, {"q": "อวัยวะใดช่วยย่อยไขมันโดยการสร้างน้ำดี", "opts": ["ตับ", "ตับอ่อน", "กระเพาะอาหาร", "ลำไส้ใหญ่"], "ans": 0, "exp": "ตับสร้างน้ำดีเพื่อช่วยให้ไขมันแตกตัวเป็นหยดเล็ก ๆ ทำให้ย่อยง่ายขึ้น"}, {"q": "เม็ดเลือดขาวมีหน้าที่เด่นที่สุดในข้อใด", "opts": ["ต่อสู้กับเชื้อโรค", "ลำเลียงออกซิเจน", "ทำให้เลือดแข็งตัว", "ลำเลียงอาหารไปเลี้ยงเซลล์"], "ans": 0, "exp": "เม็ดเลือดขาวเกี่ยวข้องกับภูมิคุ้มกันและการกำจัดเชื้อโรค"}, {"q": "ลิ้นหัวใจมีความสำคัญอย่างไร", "opts": ["ป้องกันเลือดไหลย้อนกลับ", "สร้างเม็ดเลือดแดง", "เพิ่มออกซิเจนในเลือด", "กรองของเสียออกจากเลือด"], "ans": 0, "exp": "ลิ้นหัวใจทำหน้าที่ควบคุมให้เลือดไหลไปทิศทางเดียว ไม่ไหลย้อน"}, {"q": "ปากใบของพืชมีหน้าที่เกี่ยวข้องกับกระบวนการใดมากที่สุด", "opts": ["แลกเปลี่ยนแก๊สและคายน้ำ", "ดูดแร่ธาตุจากดิน", "สร้างเมล็ด", "ลำเลียงอาหารจากใบลงราก"], "ans": 0, "exp": "ปากใบช่วยแลกเปลี่ยนแก๊ส เช่น CO₂/O₂ และควบคุมการคายน้ำ"}, {"q": "ถ้าปิดปากใบของพืชเกือบทั้งหมด พืชจะได้รับผลกระทบโดยตรงต่อสิ่งใด", "opts": ["การรับคาร์บอนไดออกไซด์ลดลง", "รากยาวขึ้นทันที", "ดอกเปลี่ยนสีเสมอ", "ลำต้นกลายเป็นไม้เนื้อแข็ง"], "ans": 0, "exp": "ปากใบเป็นช่องทางรับคาร์บอนไดออกไซด์สำหรับการสังเคราะห์ด้วยแสง"}, {"q": "โฟลเอ็มมีหน้าที่ใด", "opts": ["ลำเลียงอาหารจากใบไปส่วนต่าง ๆ", "ลำเลียงน้ำจากรากไปใบ", "ดูดน้ำจากดิน", "สร้างคลอโรฟิลล์"], "ans": 0, "exp": "โฟลเอ็มลำเลียงอาหารที่พืชสร้างจากใบไปยังส่วนอื่น ๆ"}, {"q": "ข้อใดเป็นผู้ผลิตในระบบนิเวศ", "opts": ["หญ้า", "ตั๊กแตน", "กบ", "งู"], "ans": 0, "exp": "ผู้ผลิตคือสิ่งมีชีวิตที่สร้างอาหารเองได้ เช่น พืช"}, {"q": "ถ้าในห่วงโซ่อาหาร หญ้า → ตั๊กแตน → กบ → งู จำนวนกบลดลงมาก จะเกิดผลใดเป็นไปได้มากที่สุดในระยะแรก", "opts": ["ตั๊กแตนเพิ่มขึ้น", "หญ้าเพิ่มขึ้นทันที", "งูล่าเหยื่อได้มากขึ้น", "ตั๊กแตนสูญพันธุ์ทันที"], "ans": 0, "exp": "กบกินตั๊กแตน เมื่อตัวกบน้อยลง ตั๊กแตนอาจเพิ่มจำนวนในระยะแรก"}, {"q": "แรงลัพธ์เป็นศูนย์ หมายความว่าอย่างไร", "opts": ["วัตถุอาจหยุดนิ่งหรือเคลื่อนที่ด้วยความเร็วคงที่", "วัตถุต้องเคลื่อนที่เร็วขึ้น", "วัตถุต้องหมุนเสมอ", "วัตถุต้องลอยขึ้น"], "ans": 0, "exp": "เมื่อแรงลัพธ์เป็นศูนย์ สภาพการเคลื่อนที่ไม่เปลี่ยน วัตถุอาจนิ่งหรือเคลื่อนที่ด้วยความเร็วคงที่"}, {"q": "วัตถุชิ้นหนึ่งถูกผลักบนพื้นขรุขระแล้วหยุดลง เพราะแรงใดเป็นหลัก", "opts": ["แรงเสียดทาน", "แรงแม่เหล็ก", "แรงลอยตัว", "แรงไฟฟ้าสถิต"], "ans": 0, "exp": "แรงเสียดทานต้านการเคลื่อนที่ ทำให้วัตถุช้าลงและหยุด"}, {"q": "คานชนิดใดที่จุดหมุนอยู่ระหว่างแรงพยายามกับแรงต้าน", "opts": ["คานอันดับที่ 1", "คานอันดับที่ 2", "คานอันดับที่ 3", "รอกเดี่ยวตายตัว"], "ans": 0, "exp": "คานอันดับที่ 1 มีจุดหมุนอยู่ระหว่างแรงพยายามและแรงต้าน เช่น กรรไกร กระดานหก"}, {"q": "หลอดไฟ 2 ดวงต่อแบบอนุกรม ถ้าหลอดหนึ่งขาด จะเกิดอะไรขึ้น", "opts": ["หลอดอีกดวงดับด้วย", "หลอดอีกดวงสว่างขึ้น", "วงจรยังทำงานปกติ", "ถ่านไฟฉายชาร์จตัวเอง"], "ans": 0, "exp": "วงจรอนุกรมมีกระแสไฟฟ้าไหลทางเดียว หากส่วนหนึ่งขาด วงจรเปิดทั้งหมด"}, {"q": "ถ้าต้องการให้หลอดไฟแต่ละดวงยังติดได้แม้หลอดหนึ่งขาด ควรต่อแบบใด", "opts": ["แบบขนาน", "แบบอนุกรม", "ต่อสายไฟเส้นเดียว", "ไม่ต้องใช้แหล่งกำเนิดไฟฟ้า"], "ans": 0, "exp": "วงจรขนานมีหลายทางให้กระแสไหล หลอดอื่นจึงยังทำงานได้แม้หลอดหนึ่งขาด"}, {"q": "เสียงเดินทางผ่านตัวกลางใดได้เร็วที่สุดโดยทั่วไป", "opts": ["ของแข็ง", "ของเหลว", "แก๊ส", "สุญญากาศ"], "ans": 0, "exp": "เสียงเดินทางได้เร็วในของแข็งมากกว่าของเหลวและแก๊ส และเดินทางในสุญญากาศไม่ได้"}, {"q": "เมื่อวัตถุสั่นเร็วขึ้น เสียงที่ได้จะเป็นอย่างไร", "opts": ["เสียงสูงขึ้น", "เสียงต่ำลง", "เสียงเบาลงเสมอ", "เสียงหายไปทันที"], "ans": 0, "exp": "ความถี่การสั่นมากขึ้นทำให้ระดับเสียงสูงขึ้น"}, {"q": "การเกิดเงามืดและเงามัวเกี่ยวข้องกับสมบัติใดของแสง", "opts": ["แสงเดินทางเป็นเส้นตรง", "แสงมีมวลมาก", "แสงต้องผ่านน้ำเท่านั้น", "แสงเปลี่ยนเป็นเสียงได้"], "ans": 0, "exp": "เงาเกิดจากแสงเดินทางเป็นเส้นตรงแล้วถูกวัตถุทึบแสงกั้น"}, {"q": "กระจกเว้าใช้ในไฟหน้ารถเพราะสมบัติใด", "opts": ["รวมและสะท้อนแสงให้พุ่งไปทิศทางเดียว", "ดูดกลืนแสงทั้งหมด", "ทำให้แสงหยุดนิ่ง", "เปลี่ยนแสงเป็นไฟฟ้าโดยตรง"], "ans": 0, "exp": "กระจกเว้าสามารถรวมแสงและสะท้อนให้เป็นลำแสงได้ จึงใช้ในไฟฉายหรือไฟหน้ารถ"}, {"q": "การหมุนรอบตัวเองของโลกใช้เวลาประมาณเท่าใด", "opts": ["24 ชั่วโมง", "7 วัน", "30 วัน", "365 วัน"], "ans": 0, "exp": "โลกหมุนรอบตัวเองประมาณ 24 ชั่วโมง ทำให้เกิดกลางวันและกลางคืน"}, {"q": "ข้างขึ้นข้างแรมเกิดจากสาเหตุใด", "opts": ["ตำแหน่งของดวงจันทร์ โลก และดวงอาทิตย์เปลี่ยนไป", "ดวงจันทร์มีแสงในตัวเองมากขึ้น", "โลกหยุดหมุนบางวัน", "ดวงอาทิตย์ดับแสงเป็นช่วง ๆ"], "ans": 0, "exp": "เราเห็นส่วนสว่างของดวงจันทร์ต่างกันตามตำแหน่งสัมพัทธ์ของดวงจันทร์ โลก และดวงอาทิตย์"}, {"q": "หินตะกอนมักเกิดจากกระบวนการใด", "opts": ["การทับถมและอัดแน่นของตะกอน", "การเย็นตัวของลาวาเท่านั้น", "การเผาไหม้ของแร่", "การระเหิดของน้ำแข็ง"], "ans": 0, "exp": "หินตะกอนเกิดจากตะกอนสะสม ทับถม อัดแน่น และเชื่อมประสานกัน"}, {"q": "ดินเหนียวมีลักษณะเด่นข้อใด", "opts": ["อุ้มน้ำได้มาก ระบายน้ำไม่ดี", "ระบายน้ำเร็วมากและไม่จับตัว", "ไม่มีแร่ธาตุใด ๆ", "เป็นกรดทุกชนิดเสมอ"], "ans": 0, "exp": "ดินเหนียวมีอนุภาคเล็ก จึงอุ้มน้ำได้มาก แต่ระบายน้ำไม่ดี"}, {"q": "ข้อใดเป็นการใช้ทรัพยากรอย่างยั่งยืน", "opts": ["ใช้กระดาษสองหน้าและคัดแยกขยะ", "เปิดน้ำทิ้งระหว่างแปรงฟัน", "เผาขยะพลาสติกกลางแจ้ง", "ตัดต้นไม้โดยไม่ปลูกทดแทน"], "ans": 0, "exp": "การลดใช้ ใช้ซ้ำ และคัดแยกขยะช่วยประหยัดทรัพยากรและลดผลกระทบต่อสิ่งแวดล้อม"}, {"q": "ถ้าพบว่าน้ำในคลองมีกลิ่นเหม็นและปลาตายจำนวนมาก ควรตั้งสมมติฐานใดเหมาะสมที่สุด", "opts": ["น้ำอาจมีมลพิษหรือออกซิเจนละลายน้ำน้อย", "ปลาทุกตัวนอนหลับพร้อมกัน", "น้ำมีออกซิเจนมากเกินไปเสมอ", "แสงแดดทำให้ปลาโตเร็วเกินไป"], "ans": 0, "exp": "น้ำเสียหรือมีออกซิเจนละลายน้ำน้อยอาจทำให้สิ่งมีชีวิตในน้ำตายได้"}];
+let current = 0;
+let answers = Array(questions.length).fill(null);
+let student = "";
+
+let audioCtx;
+function beep(type='click'){
+  try{
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    o.connect(g); g.connect(audioCtx.destination);
+    let freq = 440, dur = 0.08;
+    if(type==='click'){freq=520; dur=.055;}
+    if(type==='next'){freq=700; dur=.075;}
+    if(type==='correct'){freq=880; dur=.10;}
+    if(type==='finish'){freq=660; dur=.12;}
+    o.frequency.setValueAtTime(freq, now);
+    o.frequency.exponentialRampToValueAtTime(freq*1.7, now+dur);
+    g.gain.setValueAtTime(0.0001, now);
+    g.gain.exponentialRampToValueAtTime(0.20, now+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, now+dur);
+    o.start(now); o.stop(now+dur+0.02);
+    if(type==='finish'){
+      setTimeout(()=>beep('correct'),120);
+      setTimeout(()=>beep('next'),240);
+    }
+  }catch(e){}
+}
+
+function startGame(){
+  student = document.getElementById('studentName').value.trim() || 'นักเรียน';
+  document.getElementById('start').classList.add('hidden');
+  document.getElementById('quiz').classList.remove('hidden');
+  document.getElementById('nameShow').textContent = 'ผู้เล่น: ' + student;
+  beep('finish');
+  render();
+}
+function render(){
+  const q = questions[current];
+  document.getElementById('countShow').textContent = `ข้อ ${current+1}/${questions.length}`;
+  document.getElementById('question').textContent = (current+1)+'. '+q.q;
+  document.getElementById('bar').style.width = ((current)/questions.length*100)+'%';
+  document.getElementById('scoreShow').textContent = 'คะแนน: ' + calcScore();
+  const box = document.getElementById('options');
+  box.innerHTML = '';
+  q.opts.forEach((op,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt' + (answers[current]===i ? ' selected':'');
+    btn.textContent = (i+1)+') '+op;
+    btn.onclick = ()=>{answers[current]=i; beep(i===q.ans?'correct':'click'); render();};
+    box.appendChild(btn);
+  });
+}
+function calcScore(){return answers.reduce((s,a,i)=>s+(a===questions[i].ans?1:0),0)}
+function nextQ(){
+  beep('next');
+  if(current < questions.length-1){current++; render();}
+  else{showResult();}
+}
+function prevQ(){
+  beep('click');
+  if(current>0){current--; render();}
+}
+function showResult(){
+  beep('finish');
+  document.getElementById('quiz').classList.add('hidden');
+  document.getElementById('result').classList.remove('hidden');
+  const score = calcScore();
+  document.getElementById('resultName').textContent = 'ชื่อนักเรียน: ' + student;
+  document.getElementById('finalScore').textContent = score + ' / ' + questions.length;
+  const percent = Math.round(score/questions.length*100);
+  document.getElementById('passText').innerHTML = percent >= 80 ? '🏆 ผ่านเกณฑ์ 80% — เยี่ยมมาก!' : '🔥 ยังไม่ผ่าน 80% — ทบทวนแล้วลองใหม่ได้!';
+  const review = document.getElementById('review');
+  review.innerHTML = '';
+  questions.forEach((q,i)=>{
+    const user = answers[i];
+    const div = document.createElement('div');
+    div.className = 'reviewItem';
+    const ok = user === q.ans;
+    div.innerHTML = `
+      <div><b>ข้อ ${i+1}.</b> ${q.q}</div>
+      <div class="${ok?'correct':'wrong'}">${ok?'✔ ตอบถูก':'✘ ตอบผิด/ยังไม่ได้ตอบ'}</div>
+      <div>คำตอบของนักเรียน: ${user===null?'-':(user+1)+') '+q.opts[user]}</div>
+      <div class="correct">เฉลย: ${q.ans+1}) ${q.opts[q.ans]}</div>
+      <div class="exp">อธิบาย: ${q.exp}</div>
+    `;
+    review.appendChild(div);
+  });
+}
+function restart(){
+  beep('click'); current=0; answers=Array(questions.length).fill(null);
+  document.getElementById('result').classList.add('hidden');
+  document.getElementById('start').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
